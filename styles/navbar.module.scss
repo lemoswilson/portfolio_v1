@@ -1,0 +1,77 @@
+@import '/styles/variables';
+
+html {
+	.navbar {
+		width: 100vw;
+		height: $navbarSize;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+
+		transition-property: top;
+		transition-duration: 0.4s;
+		transition-timing-function: ease-in-out;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		.logoMenu {
+			margin: 0;
+			width: 125px;
+			height: inherit;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: $inconsolata;
+
+			@media screen and (prefers-color-scheme: dark){
+				color: white;
+			}
+
+		}
+
+		nav {
+			width: fit-content;
+			margin-right: 20px;
+			height: inherit;
+			display: flex;
+			align-items: center;
+
+			ul {
+				width: fit-content;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+
+				li {
+					width: fit-content;
+					padding-inline: 40px;
+					margin-inline: 5px;
+					text-align: center;
+					font-family: $PTMono;	
+					font-weight: 700;
+					font-size: 16px;
+					list-style: none;
+					cursor: pointer;
+
+					@media screen and (prefers-color-scheme: dark){
+						color: white;
+
+						&:hover {
+							color: $hoverColor_dark;
+						}
+					}
+				}
+			}
+
+			img {
+				height: 35%;
+				width: auto;
+			}
+		}
+		
+	}
+}

@@ -1,0 +1,75 @@
+@import './variables';
+
+html {
+	.email {
+		position: fixed;
+		right: 4vw;
+		bottom: 0;
+		width: 40px;
+		z-index: 5;
+
+		@media screen and (max-width: 991px){
+			display: none;
+		}
+
+		ul {
+			width: inherit;	
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			margin: 0;
+	
+			li {
+				width: inherit;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 30px;
+				text-orientation: mixed;
+				writing-mode: vertical-rl;
+				
+
+				p {
+					font-family: $PTMono;
+					display: flex;
+					align-items: center;
+					text-align: center;
+					margin: 0 auto;
+					transition-property: margin-bottom;
+					transition-duration: 0.1s;
+					transition-timing-function: ease-in;
+
+					&:hover {
+						margin-bottom: 10px;
+					}
+					
+					
+					@media (prefers-color-scheme: dark){
+						color: white;
+						
+						&:hover {
+							color: $hoverColor_dark;
+						}
+
+					}
+				}
+	
+			}
+	
+			&::after {
+				content: '';
+				width: 1px;
+				height: 90px;
+				background-color: black;
+				margin: 0;
+
+				@media screen and (prefers-color-scheme: dark) {
+					background-color: white;
+				}
+			}
+		}
+	}
+
+
+}

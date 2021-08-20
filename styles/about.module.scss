@@ -1,0 +1,119 @@
+@import './variables';
+
+html {
+	.about {
+		height: 100vh;
+		min-height: 520px;
+
+		@media screen and (min-width: 992px){
+			min-height: 720px;
+		}
+
+		.headroom {
+			height: $navbarSize;	
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			height: calc(100vh - #{$navbarSize});
+			min-height: calc(520px - #{$navbarSize});
+			width: 95%;
+			max-width: 1400px;
+			margin: auto;
+			align-items: center;
+			justify-content: flex-start;
+
+			@media screen and (min-width: 992px) {
+				min-height: calc(720px - #{$navbarSize});
+			}
+
+			h1 {
+				margin: 0;
+				font-family: $ivypresto;
+				font-size: 400;
+				margin-top: 40px;
+
+				@media screen and (prefers-color-scheme: dark){
+					color: white;
+				}
+			}
+
+			.circle {
+				margin-top: 40px;
+				border-radius: 50%;
+				width: 175px;
+				height: 175px;
+				background-color: white;
+
+				@media screen and (min-width: 992px){
+					width: 175px;
+					height: 175px;
+				}
+			}
+
+			.description {
+				margin-top: 40px;
+				font-family: $PTSerif;
+				text-align: center;
+				width: 70%;
+				
+				@media screen and (prefers-color-scheme: dark){
+					color: white;
+				}
+
+				@media screen and (min-width: 992px){
+					width: 500px;
+				}
+			}
+
+			.stuff {
+				width: 80%;
+				height: 125px;
+				// height: fit-content;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				background-color: #363131;
+				border-radius: 20px;
+				margin-top: 40px;
+				padding: 0;
+
+				@media screen and (prefers-color-scheme: dark){
+					background-color: #3B485A;
+				}
+
+				@media screen and (min-width: 991px){
+					height: 125px;
+					width: 600px;
+				}
+
+				.item {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					
+					img {
+						width: 20%;
+						height: auto;
+					}
+
+					p {
+						margin: 0;
+						margin-top: 10px;
+						font-family: $PTMono;
+						color: white;
+						text-align: center;
+
+						@media screen and (max-width: 520px){
+							font-size: 12px;
+						}
+					}
+				}
+			}
+
+
+
+		}
+	}
+}

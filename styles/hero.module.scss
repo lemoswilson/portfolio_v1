@@ -1,0 +1,111 @@
+@import '/styles/variables';
+
+html {
+	.hero {
+		height: 100vh;
+		min-height: 520px;
+
+		@media screen and (min-width: 992px){
+			min-height: 720px;
+		}
+
+		.headroom {
+			height: $navbarSize;	
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			height: calc(100vh - #{$navbarSize});
+			min-height: calc(520px - #{$navbarSize});
+			width: 95%;
+			max-width: 1400px;
+			margin: auto;
+			align-items: center;
+			justify-content: center;
+			// border: 1px solid white;
+
+			@media screen and (min-width: 992px) {
+				min-height: calc(720px - #{$navbarSize});
+				max-width: 75%;	
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.wrapper {
+				height: 20vw;
+
+				@media screen and (max-width: 991px){
+					order: 2;
+					margin-top: 50px;
+					// width: 100%;
+				}
+
+				h1 {
+					margin: 0;
+					position: relative;	
+					font-family: $ivypresto;
+					font-weight: 400;
+					font-size: 7vw;
+					overflow: hidden;
+					color: white;
+					height: 20vw;
+
+					@media screen and (min-width: 992px){
+						font-size: 6vw;
+					}
+				}
+
+				.arrow {
+					width: fit-content;
+					margin: auto;
+					img {
+						cursor: pointer;
+					}
+
+					@media screen and (max-width: 991px){
+						margin-top: 20px;
+					}
+				}
+
+
+			}
+
+
+			.binary {
+				display: grid;
+				width: 30vw;
+				height: 30vw;
+
+				grid-template-columns: repeat(11, 1fr);
+				grid-template-rows: repeat(11, 1fr);
+				grid-gap: 4px 2px;
+
+				@media screen and (max-width: 991px){
+					width: 45vmax;
+					height: 45vmax;
+					order: 1;
+				}
+
+				.digit {
+					font-family: $inconsolata;
+					margin: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					@media screen and (prefers-color-scheme: dark){
+						color: white;
+					}
+				}
+
+			}
+
+		}
+
+		@media screen and (min-width: 992px){
+			min-height: 700px;
+		}
+	}
+}
