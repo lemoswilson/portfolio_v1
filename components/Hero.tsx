@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; 
 import styles from '../styles/hero.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 
@@ -9,7 +10,7 @@ const whiteArrow = '/arrow_white.svg';
 const blackArrow = '/arrow_black.svg';
 
 export default function Hero({}: HeroProps) {
-	const bits = [...Array(11 * 11).keys()].map(v => Math.round(Math.random())) ;
+	const [bits, setBits] = useState([...Array(11 * 11).keys()].map(v => Math.round(Math.random())))
 	const dark = useDarkMode();
 
 	return (
@@ -29,8 +30,8 @@ export default function Hero({}: HeroProps) {
 				</div>
 
 				<div className={styles.binary}>
-					{ bits.map(v => (
-						<h2 className={styles.digit}>{v}</h2>
+					{ bits.map((v, idx, arr) => (
+						<h2 key={idx} className={styles.digit}>{v}</h2>
 					))}
 				</div>
 			</div>

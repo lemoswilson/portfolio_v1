@@ -1,19 +1,19 @@
 import styles from '../styles/navbar.module.scss';
 import useWidth from '../hooks/useWidth';
 import useDarkMode from '../hooks/useDarkMode';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 
 
 interface NavBarProps {
-
+	setMenu: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const menu = '<wl/>'
 const whiteMenu = '/Menu_white.svg'
 const blackMenu = '/Menu.svg'
 
-export default function NavBar({}: NavBarProps){
+export default function NavBar({setMenu}: NavBarProps){
 	const { windowWidth } = useWidth();
 
 	useEffect(() => {
