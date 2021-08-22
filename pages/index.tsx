@@ -6,10 +6,12 @@ import Socials from '../components/Socials'
 import Email from '../components/Email';
 import About from '../components/About'
 import Experience from '../components/Experience'
+import Contact from '../components/Contact'
 import { useState } from 'react'
 import Work from '../components/Work'
 import useBlockOverflow from '../hooks/useBlockOverflow'
 import Overlay from '../components/Overlay'
+import ProjectModal from '../components/ProjectModal'
 
 interface ProjectData {
   title: string,
@@ -29,7 +31,12 @@ export default function Home({}) {
   const [projectModal, setProjectModal] = useState<string>('');
   const [isMenuOpen, setMenu] = useState(false);
 
-  useBlockOverflow(projectModal.length > 0 || isMenuOpen)
+  useBlockOverflow(isMenuOpen, projectModal.length > 0)
+
+  function closeMenu(){
+    setProjectModal('')
+    setMenu(false);
+  }
 
   return (
     <div className={styles.container}>
@@ -40,17 +47,28 @@ export default function Home({}) {
       </Head>
 
       <NavBar setMenu={setMenu} />
-      <Overlay isMenuOpen={projectModal.length > 0 || isMenuOpen}/>
+      <Overlay 
+        closeMenus={closeMenu} 
+        isMenuOpen={isMenuOpen}
+        isModalOpen={projectModal.length > 0}
+      />
       <Email/>
       <Socials/>
+      <ProjectModal closeMenu={closeMenu} data={data} name={projectModal}/>
       <main className={styles.main}>
         <Hero />
         <About/> 
         <Experience/>
-        <Work data={data} projectModal={projectModal} setProjectModal={setProjectModal}/>
+        <Work 
+          data={data} 
+          projectModal={projectModal} 
+          setProjectModal={setProjectModal}
+        />
+        <Contact/>
       </main>
 
       <footer className={styles.footer}>
+        Designed &amp; Developed by Wilson Lemos
       </footer>
     </div>
   )

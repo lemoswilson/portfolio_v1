@@ -4,15 +4,17 @@ import useWidth from '../hooks/useWidth';
 
 interface OverlayProps {
 	isMenuOpen: boolean,
-
+	isModalOpen: boolean,
+	closeMenus: () => void,
 }
 
-const Overlay: React.FC<OverlayProps> = ({isMenuOpen}) => {
+const Overlay: React.FC<OverlayProps> = ({isMenuOpen, closeMenus, isModalOpen}) => {
 	const { windowWidth } = useWidth();
-	const show = isMenuOpen && windowWidth < 992 ? {display: 'flex'} : {}
+	const show = isModalOpen || isMenuOpen && windowWidth < 992 ? {display: 'flex'} : {display: 'none'}
+
 
 	return (
-		<div  style={show} className={styles.overlay}></div>
+		<div onClick={closeMenus} style={show} className={styles.overlay}></div>
 	)
 }
 
