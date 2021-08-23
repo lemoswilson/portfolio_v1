@@ -1,3 +1,4 @@
+import { ForwardedRef, MutableRefObject, useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Hero from '../components/Hero'
 import styles from '../styles/Home.module.scss'
@@ -7,11 +8,11 @@ import Email from '../components/Email';
 import About from '../components/About'
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
-import { useState } from 'react'
 import Work from '../components/Work'
 import useBlockOverflow from '../hooks/useBlockOverflow'
 import Overlay from '../components/Overlay'
 import ProjectModal from '../components/ProjectModal'
+import gsap from 'gsap';
 
 interface ProjectData {
   title: string,
@@ -30,6 +31,9 @@ export default function Home({}) {
   const [data, setData] = useState(JSONdata)
   const [projectModal, setProjectModal] = useState<string>('');
   const [isMenuOpen, setMenu] = useState(false);
+  const about_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+
 
   useBlockOverflow(isMenuOpen, projectModal.length > 0)
 

@@ -1,5 +1,8 @@
+import { useRef } from 'react';
 import styles from '../styles/experience.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
+import useIntersect from '../hooks/useIntersect';
+import gsap from 'gsap';
 import Link from 'next/link';
 
 const cssWhite = '/tech/css_white.svg';
@@ -27,10 +30,24 @@ export default function Experience(){
 		[ '/tech/sketch.svg', 'https://www.sketch.com/' ],
 	]
 
+	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+	useIntersect(element, animate)
+
+	function animate(){
+		gsap.to(content_ref.current, {
+		opacity: 1,
+		duration: 1.2,
+		y: -60,
+		ease: "power4.out",
+		})
+	}
+
 	return (
-		<div className={styles.experience}>
+		<div ref={element} className={styles.experience}>
 			<div className={styles.headroom}></div>
-			<div className={styles.content}>
+			<div ref={content_ref} className={styles.content}>
 				<h1>Experience</h1>
 
 				<div className={styles.text}>

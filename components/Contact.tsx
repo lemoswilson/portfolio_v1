@@ -1,6 +1,9 @@
-import React, { useState } from 'react'; 
+import React, { useState, useRef } from 'react'; 
 import styles from '../styles/contact.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
+import gsap from 'gsap';
+import useIntersect from '../hooks/useIntersect';
+
 const sendWhite = '/send_white.svg';
 const sendBlack = '/send_black.svg';
 
@@ -12,10 +15,24 @@ interface ContactProps {
 export default function Contact({}: ContactProps) {
 	const dark = useDarkMode();
 
+	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
+	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+	useIntersect(element, animate)
+
+	function animate(){
+		gsap.to(content_ref.current, {
+		opacity: 1,
+		duration: 1.2,
+		y: -60,
+		ease: "power4.out",
+		})
+	}
+
 	return (
-		<section className={styles.contact}>
+		<section ref={element} className={styles.contact}>
 			<div className={styles.headroom}></div>
-				<div className={styles.content}>
+				<div ref={content_ref} className={styles.content}>
 					<img src={dark ? sendWhite : sendBlack} alt={'contact'} />
 
 					<h1>Contact Me!</h1>

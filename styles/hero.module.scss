@@ -4,6 +4,7 @@ html {
 	.hero {
 		height: 100vh;
 		min-height: 520px;
+		visibility: hidden;
 
 		@media screen and (min-width: 992px){
 			min-height: 720px;
@@ -63,6 +64,8 @@ html {
 					img {
 						cursor: pointer;
 					}
+
+					opacity: 0;
 
 					@media screen and (max-width: 991px){
 						margin-top: 20px;

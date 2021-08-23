@@ -52,6 +52,7 @@ html {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
+				// visibility: hidden;
 
 				li {
 					width: fit-content;
@@ -63,6 +64,7 @@ html {
 					font-size: 16px;
 					list-style: none;
 					cursor: pointer;
+					opacity: 1;
 
 					@media screen and (prefers-color-scheme: dark){
 						color: white;

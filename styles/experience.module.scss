@@ -23,6 +23,7 @@ html {
 			margin: auto;
 			align-items: center;
 			justify-content: flex-start;
+			opacity: 0;
 
 			@media screen and (min-width: 992px) {
 				min-height: calc(720px - #{$navbarSize});
