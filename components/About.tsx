@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { MutableRefObject, useRef } from 'react';
 import styles from '../styles/about.module.scss';
 import gsap from 'gsap';
 import useIntersect from '../hooks/useIntersect';
@@ -7,11 +7,9 @@ interface AboutProps {
 
 }
 
-export default function About({}:AboutProps){
+const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
-	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
-
-	useIntersect(element, animate)
+	useIntersect(ref as MutableRefObject<HTMLDivElement>, animate)
 
 	function animate(){
 		gsap.to(content_ref.current, {
@@ -23,7 +21,7 @@ export default function About({}:AboutProps){
 	}
 
 	return (
-		<div ref={element} className={styles.about}>
+		<div ref={ref} className={styles.about}>
 			<div className={styles.headroom}></div>
 					<div ref={content_ref} className={styles.content}>
 						<h1>About me</h1>
@@ -54,6 +52,6 @@ export default function About({}:AboutProps){
 					</div>
 		</div>
 	)
-}
+})
 
-// export default Abb;
+export default About;

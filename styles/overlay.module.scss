@@ -8,6 +8,9 @@ html {
 		opacity: 0.8;
 		background: rgb(26, 26, 26);
 		z-index: 54;
+		transition-property: opacity;
+		transition-duration: 0.2s;
+		transition-timing-function: ease-in;
 		// display: none;
 	}
 

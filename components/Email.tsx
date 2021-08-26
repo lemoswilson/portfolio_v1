@@ -1,15 +1,13 @@
-import {useRef, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import gsap from 'gsap';
 import styles from '../styles/email.module.scss';
 import Link from 'next/link';
 
-
-
 interface EmailProps {
-
+	setEmailDone: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-export default function Email({}: EmailProps){
+export default function Email({setEmailDone}: EmailProps){
 
 	const emails_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const timeline = useRef() as React.MutableRefObject<TimelineMax>;
@@ -18,7 +16,7 @@ export default function Email({}: EmailProps){
 		timeline.current = gsap.timeline();
 
 		timeline.current
-		.from(emails_ref.current, {duration: 1, y: -20, x: 20, opacity: 0})
+		.from(emails_ref.current, {duration: 0.6, y: -10, x: 20, opacity: 0, onComplete: setEmailDone, onCompleteParams: [true]})
 	}, [])
 
 	return (

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { MutableRefObject, useRef } from 'react';
 import styles from '../styles/experience.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 import useIntersect from '../hooks/useIntersect';
@@ -12,7 +12,7 @@ const htmlBlack = '/tech/html.svg'
 const javascriptWhite = '/tech/javascript_white.svg';
 const javascriptBlack = '/tech/javascript.svg';
 
-export default function Experience(){
+const Experience = React.forwardRef<HTMLDivElement>(({}, ref) => {
 	const dark = useDarkMode();
 
 	const technologies: string[][] = [
@@ -31,9 +31,7 @@ export default function Experience(){
 	]
 
 	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
-	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
-
-	useIntersect(element, animate)
+	useIntersect(ref as MutableRefObject<HTMLDivElement>, animate)
 
 	function animate(){
 		gsap.to(content_ref.current, {
@@ -45,7 +43,7 @@ export default function Experience(){
 	}
 
 	return (
-		<div ref={element} className={styles.experience}>
+		<div ref={ref} className={styles.experience}>
 			<div className={styles.headroom}></div>
 			<div ref={content_ref} className={styles.content}>
 				<h1>Experience</h1>
@@ -65,4 +63,6 @@ export default function Experience(){
 			</div>
 		</div>
 	)
-}
+})
+
+export default Experience;

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'; 
+import React, { useRef, MutableRefObject } from 'react'; 
 import styles from '../styles/contact.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 import gsap from 'gsap';
@@ -11,14 +11,11 @@ interface ContactProps {
 
 }
 
-
-export default function Contact({}: ContactProps) {
+const Contact = React.forwardRef<HTMLDivElement>(({}, ref) => {
 	const dark = useDarkMode();
 
 	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
-	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
-
-	useIntersect(element, animate)
+	useIntersect(ref as MutableRefObject<HTMLDivElement>, animate)
 
 	function animate(){
 		gsap.to(content_ref.current, {
@@ -30,7 +27,7 @@ export default function Contact({}: ContactProps) {
 	}
 
 	return (
-		<section ref={element} className={styles.contact}>
+		<section ref={ref} className={styles.contact}>
 			<div className={styles.headroom}></div>
 				<div ref={content_ref} className={styles.content}>
 					<img src={dark ? sendWhite : sendBlack} alt={'contact'} />
@@ -45,10 +42,9 @@ export default function Contact({}: ContactProps) {
 
 					<button><a href={'mailto:lemoswilson@yahoo.com'}>Get in touch</a></button>
 					
-					{/* <div className={styles.footer}>
-						Designed &amp; Developed by Wilson Lemos
-					</div> */}
 				</div>
 		</section>
 	)
-}
+})
+
+export default Contact;

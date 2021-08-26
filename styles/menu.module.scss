@@ -1,0 +1,56 @@
+@import './variables';
+
+html {
+	.menu {
+		position: fixed;
+		width: 60vw;
+		height: 100%;
+		top: 0;
+		left: 100vw;
+		transition-property: left;
+		transition-timing-function: ease-in;
+		transition-duration: 0.4s;
+		z-index: 99;
+
+		@media screen and (prefers-color-scheme: dark){
+			background-color: #122240;
+		}
+
+		.close {
+			height: 70px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: center;
+			margin-right: 20px;
+
+			img {
+				height: 35%;
+				width: auto;
+				cursor: pointer;
+			}
+		}
+
+		.links {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+
+			li {
+				list-style: none;
+				margin-left: 25px;
+				margin-top: 20px;
+				font-family: $PTMono;
+				cursor: pointer;
+
+				@media screen and (prefers-color-scheme: dark){
+					color: white;
+				}
+				
+			}
+		}
+	}
+}

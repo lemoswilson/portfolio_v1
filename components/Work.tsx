@@ -1,7 +1,7 @@
 import styles from '../styles/work.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 import { HomeProps } from '../pages';
-import React, { useEffect, useRef } from 'react';
+import React, { MutableRefObject, useRef } from 'react';
 import useIntersect from '../hooks/useIntersect';
 import gsap from 'gsap';
 
@@ -10,14 +10,11 @@ interface WorkProps extends HomeProps {
 	setProjectModal: React.Dispatch<React.SetStateAction<string>>,
 }
 
-
-export default function Work({data, projectModal, setProjectModal}: WorkProps){
+const Work = React.forwardRef<HTMLDivElement, WorkProps>(({data, projectModal, setProjectModal}, ref) => {
 	const dark = useDarkMode();
 
 	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
-	const element = useRef() as React.MutableRefObject<HTMLDivElement>;
-
-	useIntersect(element, animate)
+	useIntersect(ref as MutableRefObject<HTMLDivElement>, animate)
 
 	function animate(){
 		gsap.to(content_ref.current, {
@@ -30,7 +27,7 @@ export default function Work({data, projectModal, setProjectModal}: WorkProps){
 
 
 	return (
-		<div ref={element} className={styles.work}>
+		<div ref={ref} className={styles.work}>
 			<div className={styles.headroom}></div>
 			<div ref={content_ref} className={styles.content}>
 				<h1>Works</h1>
@@ -60,4 +57,7 @@ export default function Work({data, projectModal, setProjectModal}: WorkProps){
 			</div>
 		</div>
 	)
-}
+})
+
+
+export default Work;

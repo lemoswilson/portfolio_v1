@@ -2,11 +2,13 @@
 
 html {
 	.experience {
-		height: 100vh;
+		// height: 100vh;
+		height: fit-content;
 		min-height: 520px;
 
 		@media screen and (min-width: 992px){
 			min-height: 720px;
+			height: 100vh;
 		}
 
 		.headroom {
@@ -65,7 +67,7 @@ html {
 				font-family: $PTSerif;
 				margin-top: 60px;
 				text-align: center;
-				width: 90%;
+				width: 72%;
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 40px;
