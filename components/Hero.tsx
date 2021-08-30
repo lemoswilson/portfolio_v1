@@ -3,14 +3,11 @@ import styles from '../styles/hero.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 import FontFaceObserver from 'fontfaceobserver';
 
-
 import { TextPlugin } from 'gsap/dist/TextPlugin';
 import { RoughEase } from 'gsap/dist/EasePack';
 
 import { TimelineMax } from 'gsap';
 import gsap from 'gsap';
-
-import { rangeStartEnd } from '../utility/func';
 
 interface HeroProps {
 	scrollToElement: (destination: string) => void,

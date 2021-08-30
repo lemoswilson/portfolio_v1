@@ -21,7 +21,7 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 	}
 
 	return (
-		<div ref={ref} className={styles.about}>
+		<section ref={ref} className={styles.about}>
 			<div className={styles.headroom}></div>
 					<div ref={content_ref} className={styles.content}>
 						<h1>About me</h1>
@@ -30,7 +30,7 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 						</div>
 					
 						<p className={styles.description}>
-							Hello! My name is Wilson Lemos, I’m a web developer whose interests orbit around exploring creativity through the use of digital tools. I aspire for a career that will push me to continually learn new concepts and techniques, while creating software that is pleasant to use, code that is easy to maintain, and experiences that connect people.
+							Hello! My name is Wilson Lemos, I’m a web developer currently residing in California. My interests orbit around exploring creativity through the use of digital tools. I aspire for a career that will push me to continually learn new concepts and techniques, while creating software that is pleasant to use, code that is easy to maintain, and experiences that connect people.
 							<br/>
 							<br/>
 							If I’m not working on a development project, you’ll probably find me at a good concert, running, or taking walks on the beach with my wife.
@@ -50,7 +50,7 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 							</li>
 						</ul>
 					</div>
-		</div>
+		</section>
 	)
 })
 

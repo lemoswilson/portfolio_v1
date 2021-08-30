@@ -26,6 +26,11 @@ export interface HomeProps {
   data: ProjectData[]
 }
 
+const email = "wlemosdev@gmail.com";
+const twitter = "https://twitter.com/lemosdev"
+const instagram = "https://twitter.com/lemosdev"
+const linkedin = "https://linkedin.com/lemosdev"
+
 // export default function Home({data}: HomeProps) {
 export default function Home({}) {
   const [data, setData] = useState(JSONdata)
@@ -68,6 +73,7 @@ export default function Home({}) {
         <title>Wilson Lemos</title>
         <link rel="icon" href="/favicon-16x16.png" />
         <link rel="stylesheet" href="https://use.typekit.net/sux7xms.css"></link>
+        <script dangerouslySetInnerHTML={{  __html: JSON.stringify(structuredData) }} type="application/ld+json"/>
       </Head>
 
       <Menu 
@@ -87,7 +93,7 @@ export default function Home({}) {
         isModalOpen={projectModal.length > 0}
         hide={hide}
       />
-      { socialsDone ?  <Email setEmailDone={setEmailDone}/> : null }
+      { socialsDone ?  <Email email={email} setEmailDone={setEmailDone}/> : null }
       { typingDone ? <Socials setSocialsDone={setSocialsLoading}/> : null }
       <ProjectModal closeMenu={closeMenu} data={data} name={projectModal}/>
 
@@ -131,6 +137,34 @@ export default function Home({}) {
 //   }
 // }
 
+const structuredData = {
+   "@context": "https://schema.org/",
+   "@type": "WebSite",
+   "name": "Wilson Lemos, Web Developer",
+   "url": "https://lemoswilson.com",
+   "about": {
+     "@type": "Thing",
+     "description": "Wilson Lemos is a Web Developer interested in exploring creativity through the use of digital tools.",
+     "image": "/website.png",
+     "name": "Wilson Lemos Web Development Portfolio",
+     "url": "https://lemoswilson.com",
+     "accessMode": "visual, auditory",
+     "accountablePerson": {
+       "@context": "https://schema.org",
+       "@type": "Person",
+       "birthPlace": "São Bernardo do Campo, SP. Brazil.",
+       "email": email,
+       "familyName": "Nonato de Lemos",
+       "gender": "male",
+       "hasOccupation": {
+         "@type": "Occupation",
+         "name": "Web Developer",
+       },
+       "knowsLanguage": "Portuguese-BR, English, Spanish",
+       "sameAs": twitter,
+     }
+   }
+}
 
 const JSONdata = 
 [

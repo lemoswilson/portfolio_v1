@@ -6,6 +6,7 @@ html {
 		min-height: 520px;
 
 		@media screen and (min-width: 992px){
+			// margin-top: 150px;
 			// min-height: 720px;
 		}
 
@@ -25,14 +26,9 @@ html {
 				height: fit-content;
 				margin-top: 40px;
 				opacity: 0;
-				// border: 1px solid white;
 	
 				@media screen and (min-width: 992px) {
-					// min-height: calc(720px - #{$navbarSize});
 					max-width: 75%;	
-					// flex-direction: row;
-					// align-items: center;
-					// justify-content: space-between;
 				}
 	
 				img {

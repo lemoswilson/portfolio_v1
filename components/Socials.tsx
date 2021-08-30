@@ -19,7 +19,9 @@ export default function Socials({setSocialsDone}: SocialsProps){
 		timeline.current = gsap.timeline();
 
 		timeline.current
+		.to(socials_ref.current, {duartion: 0, visibility: 'visible'})
 		.from(socials_ref.current, {duration: 0.6, y: -10, x: -20, opacity: 0, onComplete: setSocialsDone, onCompleteParams: [true]})
+
 	}, [])
 
 	return (
@@ -32,5 +34,6 @@ export default function Socials({setSocialsDone}: SocialsProps){
 			</ul>
 		</div>
 	)
+
 }
 

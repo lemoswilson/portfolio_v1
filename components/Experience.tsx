@@ -3,7 +3,6 @@ import styles from '../styles/experience.module.scss';
 import useDarkMode from '../hooks/useDarkMode';
 import useIntersect from '../hooks/useIntersect';
 import gsap from 'gsap';
-import Link from 'next/link';
 
 const cssWhite = '/tech/css_white.svg';
 const cssBlack = '/tech/css.svg';
@@ -16,18 +15,18 @@ const Experience = React.forwardRef<HTMLDivElement>(({}, ref) => {
 	const dark = useDarkMode();
 
 	const technologies: string[][] = [
-		[ dark ? htmlWhite : htmlBlack, 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5' ],
-		[ dark ? cssWhite : cssBlack, 'https://developer.mozilla.org/en-US/docs/Web/CSS' ],
-		[ dark ? javascriptWhite : javascriptBlack, 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' ],
-		[ '/tech/sass.svg', 'https://sass-lang.com/documentation', ],
-		[ '/tech/nodejs.svg', 'https://nodejs.org/en/about/' ],
-		[ '/tech/react.svg' , 'https://reactjs.org/'],
-		[ '/tech/typescript.svg', 'https://www.typescriptlang.org/' ],
-		[ '/tech/python.svg', 'https://www.python.org/about/' ],
-		[ '/tech/mongodb.png', 'https://docs.mongodb.com/manual/' ],
-		[ '/tech/github.svg', 'https://github.com/about' ],
-		[ '/tech/illustrator.svg', 'https://www.adobe.com/products/illustrator.html' ],
-		[ '/tech/sketch.svg', 'https://www.sketch.com/' ],
+		[ dark ? htmlWhite : htmlBlack, 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5', 'HTML5' ],
+		[ dark ? cssWhite : cssBlack, 'https://developer.mozilla.org/en-US/docs/Web/CSS', 'CSS3' ],
+		[ dark ? javascriptWhite : javascriptBlack, 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'JavaScript' ],
+		[ '/tech/sass.svg', 'https://sass-lang.com/documentation', 'Sass' ],
+		[ '/tech/nodejs.svg', 'https://nodejs.org/en/about/', 'NodeJS' ],
+		[ '/tech/react.svg' , 'https://reactjs.org/', 'React'],
+		[ '/tech/typescript.svg', 'https://www.typescriptlang.org/', 'Typescript' ],
+		[ '/tech/python.svg', 'https://www.python.org/about/', 'Python' ],
+		[ '/tech/mongodb.png', 'https://docs.mongodb.com/manual/', 'MongoDB' ],
+		[ '/tech/github.svg', 'https://github.com/about', 'GitHub' ],
+		[ '/tech/illustrator.svg', 'https://www.adobe.com/products/illustrator.html', 'Adobe Illustrator' ],
+		[ '/tech/sketch.svg', 'https://www.sketch.com/', 'Sketch' ],
 	]
 
 	const content_ref = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -43,7 +42,7 @@ const Experience = React.forwardRef<HTMLDivElement>(({}, ref) => {
 	}
 
 	return (
-		<div ref={ref} className={styles.experience}>
+		<section ref={ref} className={styles.experience}>
 			<div className={styles.headroom}></div>
 			<div ref={content_ref} className={styles.content}>
 				<h1>Experience</h1>
@@ -56,12 +55,12 @@ const Experience = React.forwardRef<HTMLDivElement>(({}, ref) => {
 				
 				<ul className={styles.technologies}>
 					{ technologies.map(tech => (
-						<li key={tech[0]}><a target={'_blank'} href={tech[1]}><img src={tech[0]} alt={tech[0]} /></a></li>	
+						<li key={tech[2]}><a target={'_blank'} href={tech[1]}><img src={tech[0]} alt={tech[2]} /></a></li>	
 					)) }
 				</ul>
 
 			</div>
-		</div>
+		</section>
 	)
 })
 

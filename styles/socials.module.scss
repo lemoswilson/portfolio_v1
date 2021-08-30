@@ -3,13 +3,13 @@
 html {
 	.socials {
 		position: fixed;
-		// left: 4vw;
 		left: 40px;
 		right: auto;
 		bottom: 0;
 		width: 40px;
 		z-index: 5;
 		opacity: 1;
+		visibility: hidden;
 
 		@media screen and (max-width: 991px){
 			display: none;

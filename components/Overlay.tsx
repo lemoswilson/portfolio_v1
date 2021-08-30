@@ -16,7 +16,11 @@ const Overlay: React.FC<OverlayProps> = ({isMenuOpen, closeMenus, isModalOpen, h
 
 
 	return (
-		<div onClick={closeMenus} style={{...show, ...opacity}} className={styles.overlay}></div>
+		<div 
+			onClick={closeMenus} 
+			style={{...show, ...opacity}} 
+			className={styles.overlay}>
+		</div>
 	)
 }
 

@@ -51,7 +51,7 @@ const NavBarContent = React.forwardRef<HTMLDivElement, NavBarContentProps>(({scr
 			timeline_mobile.current = gsap.timeline();
 			timeline_mobile.current
 			.to(t.current, {visibility: 'visible', duration: 0})
-			.from(logo_menu_ref.current, {duration: 0.2, y: -20, opacity: 0, delay: 0.5})
+			.from(logo_menu_ref.current, {duration: 0.2, y: -20, opacity: 0})
 			.from(menu_ref.current, {duration: 0.2, y: -20, opacity: 0})
 			firstRender.current = true;
 		}
@@ -66,10 +66,10 @@ const NavBarContent = React.forwardRef<HTMLDivElement, NavBarContentProps>(({scr
 		<nav>
 			<img onClick={() => setMenu(true)} ref={menu_ref} style={windowWidth > 991 ? {display: 'none'} : {}} src={dark ? whiteMenu : blackMenu} alt="menu" />
 			<ul style={windowWidth < 992 ? {display: 'none'} : {}} ref={ul_ref}>
-				<li onClick={() => scrollToElement('about')} ref={about_ref} className={styles.link}>about</li>
-				<li onClick={() => scrollToElement('experience')} ref={experience_ref} className={styles.link}>experience</li>
-				<li onClick={() => scrollToElement('work')} ref={work_ref} className={styles.link}>work</li>
-				<li onClick={() => scrollToElement('contact')} ref={contact_ref} className={styles.link}>contact</li>
+				<li onClick={() => scrollToElement('about')} ref={about_ref} className={styles.link}><a href="#about">about</a></li>
+				<li onClick={() => scrollToElement('experience')} ref={experience_ref} className={styles.link}><a href="#experience">experience</a></li>
+				<li onClick={() => scrollToElement('work')} ref={work_ref} className={styles.link}><a href="#work">work</a></li>
+				<li onClick={() => scrollToElement('contact')} ref={contact_ref} className={styles.link}><a href="#contact">contact</a></li>
 			</ul>
 		</nav>
 		</>

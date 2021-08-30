@@ -27,7 +27,7 @@ const Work = React.forwardRef<HTMLDivElement, WorkProps>(({data, projectModal, s
 
 
 	return (
-		<div ref={ref} className={styles.work}>
+		<section ref={ref} className={styles.work}>
 			<div className={styles.headroom}></div>
 			<div ref={content_ref} className={styles.content}>
 				<h1>Works</h1>
@@ -55,7 +55,7 @@ const Work = React.forwardRef<HTMLDivElement, WorkProps>(({data, projectModal, s
 				</ul>
 
 			</div>
-		</div>
+		</section>
 	)
 })
 

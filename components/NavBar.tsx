@@ -17,7 +17,11 @@ export default function NavBar({setMenu, scrollToElement, emailDone: typingDone}
 		<div ref={navbar_ref} className={styles.navbar}>
 			{
 				typingDone 
-				? <NavBarContent ref={navbar_ref} scrollToElement={scrollToElement} setMenu={setMenu} />
+				? <NavBarContent 
+					ref={navbar_ref} 
+					scrollToElement={scrollToElement} 
+					setMenu={setMenu} 
+				/>
 				: null
 			}
 		</div>
