@@ -77,6 +77,19 @@ html {
 				}
 			}
 
+			button {
+				background: transparent;
+				outline: none;
+				border: none;
+				height: 35%;
+
+				img {
+					height: 100%;
+					width: auto;
+					cursor: pointer;
+				}
+			}
+
 			img {
 				height: 35%;
 				width: auto;

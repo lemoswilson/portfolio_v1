@@ -10,14 +10,21 @@ export default function ProjectModal({name, data, closeMenu}: ProjectModalProps)
 	const value = data.filter(d => d.title === name)
 
 	return (
-		<div onClick={closeMenu} style={name.length === 0 ? {display: 'none'} : {}} className={styles.stuff}>
+		<div 
+			onClick={closeMenu} 
+			style={name.length === 0 ? {display: 'none'} : {}} 
+			className={styles.stuff}
+			role='dialog'
+			aria-modal={'true'}
+			aria-labelledby={'dialog1_label'}
+		>
 			<div
 				className={styles.modal}
 				onClick={(e) => {e.stopPropagation()}}
 			>
-				<div className={styles.title}>
+				<h1 id='dialog1_label' className={styles.title}>
 					{ name }
-				</div>
+				</h1>
 				<div className={styles.content}>
 					<img className={styles.image} src={ value.length > 0 ? value[0].img : ''} alt={name} />
 					<p>{value.length > 0 ? value[0].description : ''}</p>

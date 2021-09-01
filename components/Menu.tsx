@@ -28,7 +28,7 @@ export default function Menu({isMenuOpen, setMenu, scrollToElement, setHide}: Me
 	}
 	
 	return (
-		<div style={isMenuOpen && windowWidth < 992 ? {left: '40vw'} : {visibility: 'hidden'}} className={styles.menu}>
+		<div style={isMenuOpen && windowWidth < 992 ? {left: '40vw'} : windowWidth > 991 ? {visibility: 'hidden'} : {}} className={styles.menu}>
 			<div className={styles.close}>
 				<img onClick={() => setMenu(false)} src={dark ? whiteClose : blackClose} alt="close" />
 			</div>	

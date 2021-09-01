@@ -40,7 +40,12 @@ const Work = React.forwardRef<HTMLDivElement, WorkProps>(({data, projectModal, s
 				
 				<ul className={styles.projects}>
 					{ data.map((project, idx, arr) => (
-						<li onClick={() => {setProjectModal(project.title)}} className={idx !== 0 ? styles.notFirst : ''} key={project.title}>
+						<li 
+							onClick={() => {setProjectModal(project.title)}} 
+							className={idx !== 0 ? styles.notFirst : ''} 
+							key={project.title}
+							aria-label={`Open modal for project ${project.title}`}
+						>
 							<img src={project.img} alt={project.title} />
 							<div className={styles.look}>
 								<div className={styles.d1}>

@@ -5,6 +5,7 @@ import Github from './SocialIcons/Github';
 import Instagram from './SocialIcons/Instagram';
 import Linkedin from './SocialIcons/Linkedin';
 import Twitter from './SocialIcons/Twitter';
+import { twitter, linkedin, instagram, github } from '../pages/index';
 
 interface SocialsProps {
 	setSocialsDone: React.Dispatch<React.SetStateAction<boolean>>,
@@ -27,10 +28,10 @@ export default function Socials({setSocialsDone}: SocialsProps){
 	return (
 		<div ref={socials_ref} className={styles.socials}>
 			<ul className={styles.list}>
-				<li><Twitter/></li>
-				<li><Linkedin/></li>
-				<li><Instagram/></li>
-				<li className={styles.last}><Github/></li>
+				<li><a href={twitter}><Twitter/></a></li>
+				<li><a href={linkedin}><Linkedin/></a></li>
+				<li><a href={instagram}><Instagram/></a></li>
+				<li className={styles.last}><a href={github}><Github/></a></li>
 			</ul>
 		</div>
 	)

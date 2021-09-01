@@ -13,6 +13,7 @@ import useBlockOverflow from '../hooks/useBlockOverflow'
 import Overlay from '../components/Overlay'
 import ProjectModal from '../components/ProjectModal'
 import Menu from '../components/Menu'
+import useKeyboardCloseModal from '../hooks/useKeyboardCloseModal'
 
 interface ProjectData {
   title: string,
@@ -26,14 +27,13 @@ export interface HomeProps {
   data: ProjectData[]
 }
 
-const email = "wlemosdev@gmail.com";
-const twitter = "https://twitter.com/lemosdev"
-const instagram = "https://twitter.com/lemosdev"
-const linkedin = "https://linkedin.com/lemosdev"
+export const email = "wlemosdev@gmail.com";
+export const twitter = "https://twitter.com/olemoswilson"
+export const instagram = "https://instagram.com/olemoswilson"
+export const linkedin = "https://linkedin.com/lemoswilson"
+export const github = "https://github.com/lemoswilson"
 
-// export default function Home({data}: HomeProps) {
-export default function Home({}) {
-  const [data, setData] = useState(JSONdata)
+export default function Home({data}: HomeProps) {
   const [projectModal, setProjectModal] = useState<string>('');
   const [isMenuOpen, setMenu] = useState(false);
   const [hide, setHide] = useState(false);
@@ -51,11 +51,11 @@ export default function Home({}) {
   const [emailDone, setEmailDone] = useState(false);
 
   function setLoading(state: boolean){
-    console.log('should be setting loading')
     setLoadingDone(state);
   }
 
   useBlockOverflow(isMenuOpen, projectModal.length > 0)
+  useKeyboardCloseModal(projectModal, closeMenu)
 
   function closeMenu(){
     setProjectModal('')
@@ -123,19 +123,21 @@ export default function Home({}) {
   )
 }
 
-// export const getStaticProps = async () => {
-//   const res = await fetch(
-//     process.env.JSON_BIN, 
-//     {headers: {"secret-key": '$2b$10$9gQCG3/2yh.uvHDOABYXiuQWo84Lk.9RzuE7glwhNJ6gqiRwAwJ8G'}}
-//   )
-//   const data = await res.json()
+export const getStaticProps = async () => {
+  const res = await fetch(
+    process.env.JSON_BIN, 
+    {headers: {"secret-key": process.env.JSON_BIN_KEY}}
+  )
 
-//   return {
-//     props: {
-//       data: data.data,
-//     },
-//   }
-// }
+  const data = await res.json()
+  console.log('key is', process.env.JSON_BIN_KEY);
+
+  return {
+    props: {
+      data: data.data,
+    },
+  }
+}
 
 const structuredData = {
    "@context": "https://schema.org/",
@@ -165,28 +167,3 @@ const structuredData = {
      }
    }
 }
-
-const JSONdata = 
-[
-    {
-      "title": "tmlssnss",
-      "description": "This project is an e-commerce platform that was built using ReactJS, ExpressJS, MongoDB, commerceJS, and Stripe. The website contains an authentication system, together with a shop and checkout system.",
-      "link": "",
-      "source": "",
-      "img": "https://i.imgur.com/GtsGuQY.png"
-    },
-    {
-      "title": "etune",
-      "description": "This is a content aggregator website that I made to collect news from electronic music-related pages. It was made with Python and Redis for scraping data, and Django for the web framework. \n The website is outdated, as the HTML for the scrapped pages has changed, and since I don’t actually use the website anymore, I haven’t updated the source code.",
-      "link": "",
-      "source": "",
-      "img": "https://i.imgur.com/BGMyRp8.png"
-    },
-    {
-      "title": "XolombrisX",
-      "description": "This is a beat making web application made with ReactJS, ToneJS, Redux,   NodeJS and MongoDB. I made this application to explore the WebAudio API capabilities within ToneJS library.",
-      "link": "",
-      "source": "",
-      "img": "https://i.imgur.com/xoKD2ZU.png"
-    }
-  ]
