@@ -2,11 +2,12 @@
 
 html {
 	.about {
-		height: 100vh;
 		min-height: 520px;
-
+		height: fit-content;
+		
 		@media screen and (min-width: 992px){
 			min-height: 720px;
+			height: 100vh;
 		}
 
 		.headroom {
@@ -16,7 +17,8 @@ html {
 		.content {
 			display: flex;
 			flex-direction: column;
-			height: calc(100vh - #{$navbarSize});
+			// height: calc(100vh - #{$navbarSize});
+			height: fit-content;
 			min-height: calc(520px - #{$navbarSize});
 			width: 95%;
 			max-width: 1400px;

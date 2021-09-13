@@ -30,11 +30,11 @@ const Work = React.forwardRef<HTMLDivElement, WorkProps>(({data, projectModal, s
 		<section ref={ref} className={styles.work}>
 			<div className={styles.headroom}></div>
 			<div ref={content_ref} className={styles.content}>
-				<h1>Works</h1>
+				<h1>Work</h1>
 
 				<div className={styles.text}>
 					<p>
-						Some of the latest works I have done. More coming soon
+						Some of the latest work I have done. More coming soon
 					</p>
 				</div>
 				

@@ -11,6 +11,7 @@ html {
 		transition-timing-function: ease-in;
 		transition-duration: 0.4s;
 		z-index: 99;
+		background-color: white;
 
 		@media screen and (prefers-color-scheme: dark){
 			background-color: #122240;

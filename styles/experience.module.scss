@@ -2,9 +2,9 @@
 
 html {
 	.experience {
-		// height: 100vh;
 		height: fit-content;
 		min-height: 520px;
+		// border: 1px solid white;
 
 		@media screen and (min-width: 992px){
 			min-height: 720px;
@@ -18,7 +18,6 @@ html {
 		.content {
 			display: flex;
 			flex-direction: column;
-			height: calc(100vh - #{$navbarSize});
 			min-height: calc(520px - #{$navbarSize});
 			width: 95%;
 			max-width: 1400px;
