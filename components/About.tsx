@@ -26,7 +26,7 @@ const About = React.forwardRef<HTMLDivElement, AboutProps>(({}, ref) => {
 					<div ref={content_ref} className={styles.content}>
 						<h1>About me</h1>
 						<div className={styles.circle}>
-							<img src="/profile.png" alt="" />
+							<img src="/Profile.png" alt="" />
 						</div>
 					
 						<p className={styles.description}>
